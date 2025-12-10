@@ -3,13 +3,13 @@ from rest_framework import serializers
 
 User = get_user_model()
 
-class UserSerializers(serializers.ModelSerializer):
+class UserSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = User
         exclude = ['groups','user_permissions','is_staff','is_superuser','last_login']
         
-class RegisterSerializers(serializers.ModelSerializer):
+class RegisterSerializer(serializers.ModelSerializer):
     confirm = serializers.CharField(max_lenght=128)
     
     class Meta:
@@ -36,7 +36,7 @@ class LoginSerializer(serializers.Serializer):
         username = serializers.CharField(max_length=150)
         password = serializers.CharField(max_length=128)
         
-class ProfileSerializers(serializers.ModelSerializer):
+class ProfileSerializer(serializers.ModelSerializer):
         
         class Meta:
             model = User
